@@ -1,0 +1,99 @@
+void corp_car_t(){
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(1,0.46,0.09);
+        glVertex2f(-2.0, -3.0);
+        glVertex2f(-2.0, 3.0);
+        glVertex2f(2.0, 3.0);
+        glVertex2f(2.0, -3.0);
+    glEnd();
+}
+
+void aerofolio(){
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(1,0.55,0.0);
+        glVertex2f(-3.0, -4.0);
+        glVertex2f(-3.0, -2.0);
+        glVertex2f(3.0, -2.0);
+        glVertex2f(3.0, -4.0);
+    glEnd();
+}
+
+void corp_car_f(){
+    glLineWidth(5);
+    glBegin(GL_TRIANGLES);
+        glColor3f(1,0.46,0.09);
+        glVertex2f(-1.0, 3.0);
+        glVertex2f(0.0, 8.0);
+        glVertex2f(1.0, 3.0);
+    glEnd();
+}
+
+void eixo_f(){
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(0.86,0.86,0.86);
+        glVertex2f(-2.0, 5.0);
+        glVertex2f(-2.0, 6.0);
+        glVertex2f(2.0, 6.0);
+        glVertex2f(2.0, 5.0);
+    glEnd();
+}
+
+void r_s_e(){                                       //roda superior esquerda
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(0.0,0.0,0.0);
+        glVertex2f(-4.0, 4.0);
+        glVertex2f(-4.0, 7.0);
+        glVertex2f(-2.0, 7.0);
+        glVertex2f(-2.0, 4.0);
+    glEnd();
+}
+
+void r_s_d(){                                       //roda superior direita
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(0.0,0.0,0.0);
+        glVertex2f(2.0, 4.0);
+        glVertex2f(2.0, 7.0);
+        glVertex2f(4.0, 7.0);
+        glVertex2f(4.0, 4.0);
+    glEnd();
+}
+
+void r_i_e(){                                       //roda inferior esquerda
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(0.0,0.0,0.0);
+        glVertex2f(-4.0, -3.0);
+        glVertex2f(-4.0, 0.0);
+        glVertex2f(-2.0, 0.0);
+        glVertex2f(-2.0, -3.0);
+    glEnd();
+}
+
+void r_i_d(){                                       //roda inferior direita
+    glLineWidth(5);
+    glBegin(GL_QUADS);
+        glColor3f(0.0,0.0,0.0);
+        glVertex2f(2.0, -3.0);
+        glVertex2f(2.0, 0.0);
+        glVertex2f(4.0, 0.0);
+        glVertex2f(4.0, -3.0);
+    glEnd();
+}
+
+DESENHA
+
+glPushMatrix();
+        r_s_e();
+        r_s_d();
+        r_i_e();
+        r_i_d();
+        eixo_f();
+        corp_car_t();
+        corp_car_f();
+        aerofolio();
+    glPopMatrix();

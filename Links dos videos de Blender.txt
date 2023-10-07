@@ -1,0 +1,146 @@
+Blender 3.3 Manual de referência
+https://docs.blender.org/manual/pt/dev/
+
+GETTING STARTED - Blender
+https://docs.blender.org/manual/pt/dev/getting_started/about/index.html
+
+BLOG SOBRE BLENDER
+http://www.blender3dbrasil.com.br/
+
+4 Dicas de modelagem no Blender l Blender Tutorial
+https://www.youtube.com/watch?v=0Q7DUfxwcpM
+
+BLENDER - MODELAGEM / Parte 01
+https://www.youtube.com/watch?v=WmdJpZme2LM
+
+Tutorial Blender 2.8 - Aula 02 - Introdução a Modelagem
+https://www.youtube.com/watch?v=QT-idgkq_-w
+
+Blender para iniciantes, Modelagem de asset - Parte 1 l Mini - Curso Baú
+https://www.youtube.com/watch?v=0D55iJ43Tmo
+
+Introdução a Escultura - Blender 2.9
+https://www.youtube.com/watch?v=1CxPi15jdOk
+
+Blender: Modelagem orgânica e Cycles Render
+https://www.youtube.com/watch?v=zuB5jwxiW04&t=834s
+
+ILUMINAÇÃO DE STUDIO PERFEITA no Blender
+https://www.youtube.com/watch?v=RpzxY5frl4s
+
+Como ILUMINAR um objeto | Tutorial Blender 2.8
+https://www.youtube.com/watch?v=NISWGWZWNAY
+
+Considerações Sobre Iluminação - Tutorial Blender 2.82 - Português
+https://www.youtube.com/watch?v=7xlMmUmAkbE
+
+Blender 3D - MATERIAL COM TRANSPARÊNCIA
+https://www.youtube.com/watch?v=MJoHRNqd3lI
+
+Trabalhando com Transparência - Tutorial Blender 2.82 - Português
+https://www.youtube.com/watch?v=EqSVeSPvr3s
+
+Blender 3D - TRANSPARÊNCIA E REFRAÇÃO NO EEVEE
+https://www.youtube.com/watch?v=N-kfsgLubmA
+
+Como aplicar transparência em objetos no Blender
+https://www.youtube.com/watch?v=lxZzlddlavM
+
+Como Criar A Famosa Neblina Fog no Blender 2 83 Eevee Render
+https://www.youtube.com/watch?v=zROZDtPU5TY
+
+Blender 3D - EFEITO NÉVOA PELA DISPERSÃO DE LUZ NO AMBIENTE
+https://www.youtube.com/watch?v=EzFxH5NgR40
+
+Tutorial Blender - Neblina
+https://www.youtube.com/watch?v=rJP2FECCJ-E
+
+Blender 3D - CÉU COM NUVENS
+https://www.youtube.com/watch?v=We13etBkAhQ
+
+[Tutorial Blender/UPBGE] Como Fazer um céu bonito e realista no blender!!!!
+https://www.youtube.com/watch?v=ZXbfYkzhBEs
+
+Blender 3D - MODELANDO NUVENS COM METABALL E VOLUME
+https://www.youtube.com/watch?v=IjbvXRe3oBk
+
+Como RENDERIZAR no Blender com Eevee | Tutorial Blender
+https://www.youtube.com/watch?v=Om-iuFrec0c
+
+Como RENDERIZAR Qualquer Coisa em Blender
+https://www.youtube.com/watch?v=zzhmD2me5nM
+
+Blender 3D - ENTENDENDO A RENDERIZAÇÃO NO BLENDER
+https://www.youtube.com/watch?v=JLgqErh9b2U
+
+Tutorial Blender 2.8 em Português • Aula 4 • Introdução a Renderização
+https://www.youtube.com/watch?v=ocrUNOLLn6w
+
+Blender 3D - ENTENDENDO A RENDERIZAÇÃO (EEVEE)
+https://www.youtube.com/watch?v=hJRZ6ESNBTQ
+
+Primeiros passos com a Interface - Animação no Blender para iniciantes #01
+https://www.youtube.com/watch?v=Enx8vC1AckU
+
+Como fazer ANIMAÇÃO em 10 Min - Tutorial Blender 2.9 - Walk Cycle
+https://www.youtube.com/watch?v=F_QlIqlkISA
+
+PRECISAMOS FALAR SOBRE: Animação no Blender
+https://www.youtube.com/watch?v=R1V2FLdN3wM
+
+INTRODUÇÃO AO BLENDER: ANIMAÇÃO | BLENDER TUTORIAL
+https://www.youtube.com/watch?v=R41UDdEmZQw
+
+Como Fazer Animação (Rigging) - Tutorial Blender 2.8 - Animal Rigging
+https://www.youtube.com/watch?v=hszxbDE3A0I
+
+Precisamos falar sobre RIGGING no Blender
+https://www.youtube.com/watch?v=l3PUnqFrbRo
+
+Blender 2.8 Tutorial : Rig ANY Character for Animation in 10 Minutes!
+https://www.youtube.com/watch?v=SBYb1YmaOMY
+
+Rig a Low Poly Character in Blender 2.9x
+https://www.youtube.com/watch?v=XkiWBSSuxLw
+
+Usando a Física do Blender em 8 min - Blender Physics
+https://www.youtube.com/watch?v=Z6i7UMzvaUw
+
+[ANIMAÇÂO 3D] Como fazer Animação no Blender com Simulação de Física - Tutoriais em Português
+https://www.youtube.com/watch?v=d8_uOX46hCU
+
+Simulação de TECIDO em 4 min - Tutorial Blender 2.9
+https://www.youtube.com/watch?v=xe8bNnnrjGU
+
+Como simular Fluidos, líquidos ou água no Blender 3D - Tutorail
+https://www.youtube.com/watch?v=71mHf_2N9tw
+
+Let's Make Coffee: Blender Fluid Sim (Manta Flow) For Beginners
+https://www.youtube.com/watch?v=6B0QM4Cft5c
+
+Learn Blender's NEW Water Physics in 6 minutes! (Blender 2.9+)
+https://www.youtube.com/watch?v=e3mhJXuveFo
+
+Blender 3D - ENCHENDO RECIPIENTES PELO SIMULADOR DE FLUIDOS
+https://www.youtube.com/watch?v=DrushkXsUJ4
+
+Blender 3D - PARTÍCULAS SEGUINDO CURVAS
+https://www.youtube.com/watch?v=rjNNmWeWUuc
+
+Tutorial blender efeito de particula
+https://www.youtube.com/watch?v=TdlvDnaVOZc
+
+Blender 3D - EFEITO GRAMA PELAS PARTÍCULAS
+https://www.youtube.com/watch?v=8DCtgapjZig
+
+Criando Cabelos com Partículas(Hair) - Tutorial Blender 2.8 - Português
+https://www.youtube.com/watch?v=5e2IBhqHnLg
+
+Como animar cabelo no Blender
+https://www.youtube.com/watch?v=_wi_sET-WCY
+
+Como fazer cabelo realista com Blender
+https://www.youtube.com/watch?v=OXSTremJT90
+
+Blender 3D - GERANDO PARTÍCULAS TIPO HAIR
+https://www.youtube.com/watch?v=GxacQOyk3tM
