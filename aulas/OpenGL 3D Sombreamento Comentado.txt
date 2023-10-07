@@ -1,0 +1,104 @@
+#include <GL/glut.h>
+#include <stdio.h>
+
+//Material do objeto (material branco) (parâmetros)
+GLfloat object_ambient[]   = {0.3, 0.0, 0.0, 1.0};
+GLfloat object_difusa[]    = {0.0, 1.0, 0.0, 1.0};
+GLfloat object_especular[] = {1.0, 0.9, 0.9, 1.0};
+GLfloat object_emissao[]   = {0.0, 0.0, 0.0, 0.0};
+GLfloat object_brilho[]    = {20.0};
+
+//Informações sobre a luz (parâmetros)
+GLfloat cor_luz_ativa[]    = {1.0, 1.0, 0.0, 1.0};
+GLfloat cor_luz0[]         = {1.0, 1.0, 1.0, 1.0};
+GLfloat cor_luz_amb[]      = {0.1, 0.1, 0.1, 1.0};
+GLfloat posicao_luz0[]     = {8.0, 8.0, 15.0,1.0};
+
+GLfloat width, height;   //largura e altura
+
+void inicializa(void){
+
+    glClearColor (0,0,0,1);         //especifica que a cor de fundo da janela será preta
+    glEnable(GL_DEPTH_TEST);        //habilita o depth-buffering
+    glEnable(GL_LIGHTING);          //habilita o uso de iluminaçã
+    glEnable(GL_LIGHT0);            //habilita a luz de número 0
+
+    printf("  Direcionais do teclado movem a luz selecionada em X e Y.\n");
+    printf("  'PageUp' e 'PageDown' movem a luz selecionada em Z.\n");
+
+}
+
+void desenhaObjetos(void){
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);                     //buffer padrão (limpa a tela toda vez que a função é chamada)
+
+    glMatrixMode (GL_PROJECTION);                                            //projeção dos pontos definidos no plano cartesiano
+    glLoadIdentity();                                                        //carrega a projeção
+    gluPerspective(60.0, (GLfloat) width/(GLfloat) height, 1.0, 200.0);      //função que estabelece os parâmetros da Projeção Perspectiva, atualizando a matriz de projeção perspectiva.
+
+    glMatrixMode(GL_MODELVIEW);                                              //projeção do tipo modelo
+    glLoadIdentity ();                                                       //carrega a projeção
+    gluLookAt (0.0, 0.0, 30.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);                //Especifica posição do observador e do alvo
+
+    glPushMatrix();                                                          //insere a matriz de transformação corrente na pilha
+        glTranslatef(posicao_luz0[0],posicao_luz0[1],posicao_luz0[2]);       //tranlada nosso ponto de luz
+		glLightfv(GL_LIGHT0, GL_POSITION, posicao_luz0);                     //Define os parâmetros da luz de número 0
+		glMaterialfv(GL_FRONT, GL_EMISSION, cor_luz_ativa);                  //define a concentração do brilho
+		glutSolidSphere(0.1,100,100);                                        //cria uma forma 3d sólida
+    glPopMatrix();                                                           //retira a matriz do topo da pilha e torna esta última a matriz de transformação corrente
+
+    glShadeModel(GL_SMOOTH);
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, object_ambient);                     //especifica os parâmetros materiais para o modelo de iluminação
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, object_difusa);                      //especifica os parâmetros materiais para o modelo de iluminação
+	glMaterialfv(GL_FRONT, GL_SPECULAR, object_especular);                  //especifica os parâmetros materiais para o modelo de iluminação
+    glMaterialfv(GL_FRONT, GL_EMISSION, object_emissao);                    //especifica os parâmetros materiais para o modelo de iluminação
+    glMaterialfv(GL_FRONT, GL_SHININESS, object_brilho);                    //especifica os parâmetros materiais para o modelo de iluminação
+
+    glPushMatrix();                                                         //insere a matriz de transformação corrente na pilha
+        glutSolidSphere(8, 100,100);                                        //cria uma forma 3d sólida
+	glPopMatrix();                                                          //retira a matriz do topo da pilha e torna esta última a matriz de transformação corrente
+
+   glutSwapBuffers();                                                       //Executa uma troca de buffer na camada em uso para a janela atual (para que consiga trabalhar com dois buffers)
+}
+
+void AlteraTamanhoJanela(int w, int h){
+    width = w;                                              //largura da janela
+    height = h;                                             //altura da janela
+    glViewport(0, 0, w, h);                                 //liga viewport com o desenho, aqui eu digo qual janela eu vou utilizar
+}
+
+/*função que atriui valores as nossas variáveis de movimentação x, y e z(dependendo da tecla pressionada) */
+void teclasEspeciais(int tecla, int x, int y){
+    switch (tecla){
+        case GLUT_KEY_LEFT: posicao_luz0[0]-=0.2;               //move a luz pra esqueda -x
+        break;
+        case GLUT_KEY_RIGHT: posicao_luz0[0]+=0.2;              //move a luz pra direira +x
+        break;
+        case GLUT_KEY_UP: posicao_luz0[1]+=0.2;                 //move a luz pra cima  +y
+        break;
+        case GLUT_KEY_DOWN:	posicao_luz0[1]-=0.2;               //move a luz pra baixo -y
+        break;
+        case GLUT_KEY_PAGE_DOWN: posicao_luz0[2]-=0.2;          //move a luz pra trás -z
+        break;
+        case GLUT_KEY_PAGE_UP: posicao_luz0[2]+=0.2;            //move a luz pra frente +z
+        break;
+   }
+   glutPostRedisplay();                                         //redesenha a cena que está na janela
+}
+
+
+
+int main(void)
+{
+     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);       //somente um double buffer | sistema de cores RGB | Trabalha através da associação de uma profundidade, ou distância, do plano de visualização
+     glutInitWindowSize(800,600);                                    //define o tamanho da janela
+     glutInitWindowPosition(300,120);                                //medidas usadas para posicionar a janela no meio da tela - isso depende da resolução do monitor
+     glutCreateWindow("Exemplo Iluminação");                         //permite a criação de uma janela
+     inicializa();                                                   //função que inicializa nossas variáveis
+     glutDisplayFunc(desenhaObjetos);                                //função de callback - chama a função desenhaObjetos
+     glutSpecialFunc(teclasEspeciais);                               //chama a função que escuta nossas teclas direcionais e page up e down
+     glutReshapeFunc(AlteraTamanhoJanela);                           //função que altera o tamanho da janela, redesenha o tamanho da janela
+     glutPostRedisplay();                                            //redesenha a cena que está na janela
+     glutMainLoop();                                                 //loop infinito - escuta as informações do sistema até encerrar a aplicação
+     return 0;                                                       //retorna zero
+}

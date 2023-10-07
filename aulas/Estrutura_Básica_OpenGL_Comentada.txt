@@ -1,0 +1,40 @@
+#include <GL/gl.h> 					//biblioteca que permite todas as chamadas da API openGL
+#include <GL/glut.h> 				//bibliotecao que permite a manipulação de janelas
+#include <Math.h>                   //conjunto de funções para operações matemáticas
+
+
+void linha(){
+glLineWidth(8);                    //adicionja espessura a linha desenhada
+glColor3f(1,0,0);                  //adiciona cor a linha
+glBegin(GL_LINES);                 //lBegin e glEnd delimitam os vértices que definem uma primitiva ou um grupo de primitivas semelhantes (definida como parâmetro).
+    glVertex2f(-2.0, 0.0);         //adiciona um ponto na coordenada x, y que será usado para completar o segmento de reta
+    glVertex2f(2.0, 0.0);          //adiciona um ponto na coordenada x, y que será usado para completar o segmento de reta
+glEnd();
+}
+
+void Desenha(void){  				//função de desenho
+    glClear(GL_COLOR_BUFFER_BIT);	//buffer padrão; limpa a tela toda vez que a função é chamada
+	glMatrixMode(GL_PROJECTION); 	// projeção dos pontos definidos no plano cartesiano
+    glLoadIdentity(); 				// carrega a projeção
+    gluOrtho2D(-5,5,-5,5); 			// define o tamanho do plano cartesiano
+	glMatrixMode(GL_MODELVIEW); 	// projeção do tipo modelo
+    glLoadIdentity(); 				// carrega essa identidade de projeção de modelo
+
+	glPushMatrix();                 //insere a matriz de transformação corrente na pilha
+        linha();                    //chama a função que desenha a linha
+    glPopMatrix();                  //retira a matriz do topo da pilha e torna esta última a matriz de transformação corrente
+
+	glFlush(); 						//carrega os comandos OpenGL (envia para o hardware os comandos, permitindo assim que os drivers GL iniciem o render)
+}
+
+int main(void){
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); 	                   // somente um buffer | sistema de cores RGB
+    glutInitWindowSize(800,600);  				                       // define o tamanho da janela
+    glutInitWindowPosition((glutGet(GLUT_SCREEN_WIDTH)-960)/2,
+                           (glutGet(GLUT_SCREEN_HEIGHT)-540)/2);       //medidas usadas para posicionar a janela no meio da tela - isso depende da resolução do monitor
+    glutCreateWindow("Exemplo em OpenGL"); 			                   // permite a criação de uma janela
+    glutDisplayFunc(Desenha);  						                   // função de callback - chama a função Desenha
+    glClearColor(1,1,1,0);  						                   // informa a cor de fundo da tela
+    glutMainLoop();  								                   // loop infinito - escuta as informações do sistema até encerrar a aplicação
+    return 0; 										                   // retorna zero
+}

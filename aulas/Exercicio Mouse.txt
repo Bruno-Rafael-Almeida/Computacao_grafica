@@ -1,0 +1,104 @@
+#include <GL/gl.h>
+#include <GL/glut.h>
+#include <stdio.h>
+#include <locale.h>
+
+int movexA = 200, moveyA = 600, movexB = 600, moveyB = 600, movexC = 600, moveyC = 200, movexD = 200, moveyD = 200;
+
+
+void quadrado(){
+    glBegin(GL_QUADS);
+        glColor3f(0,1,0);
+        glVertex2f(movexA,moveyA); // A
+        glVertex2f(movexB,moveyB); // B
+        glVertex2f(movexC,moveyC); // C
+        glVertex2f(movexD,moveyD); // B
+    glEnd();
+}
+
+void pontos(){
+    glPointSize(30);
+    glBegin(GL_POINTS);
+        glColor3f(1,0,0);
+        glColor3f(0,0,0); // preto
+        glVertex2f(200,600);
+        glColor3f(1,0,0); // vermelho
+        glVertex2f(600,600);
+        glColor3f(1,1,0); //amarelo
+        glVertex2f(movexC,moveyC);
+        glColor3f(0,0,1); // azul
+        glVertex2f(movexD,moveyD);
+
+    glEnd();
+}
+
+void desenhaObjetos(void){
+    glClear(GL_COLOR_BUFFER_BIT);
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0,1000,1000,0);
+	glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glPushMatrix();
+        quadrado();
+       // pontos();
+    glPopMatrix();
+
+	glutSwapBuffers();
+}
+
+
+void gerenciaMouse(int botao, int estado, int x, int y){
+    if (botao == GLUT_RIGHT_BUTTON)
+        if(estado == GLUT_DOWN){
+            movexC = x;
+            moveyC = y;
+            printf("Botão direito. \n");
+        }
+
+    if (botao == GLUT_LEFT_BUTTON)
+        if(estado == GLUT_DOWN){
+            movexD = x;
+            moveyD = y;
+             printf("Botão esquerdo. \n");
+        }
+
+    if (botao == GLUT_MIDDLE_BUTTON)
+        if(estado == GLUT_DOWN){
+            movexA = x;
+            moveyA = y;
+            movexB = x;
+            moveyB = y;
+            printf("Botão do meio. \n");
+        } else if(estado == GLUT_UP){
+            movexA = 200;
+            moveyA = 600;
+            movexB = 600;
+            moveyB = 600;
+        }
+
+    glutPostRedisplay();
+}
+
+void MouseAndando (int x, int y)
+{
+    printf("Mouse na Posição: (%d, %d)\n", x, y );
+}
+
+int main(void){
+    printf("",setlocale(LC_ALL, "Portuguese")); // para usar acentos nos printf's
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(1000,1000);
+    glutInitWindowPosition(0,0);
+	glutCreateWindow("Função Mouse - Interação");
+    glutDisplayFunc(desenhaObjetos);
+    glutMouseFunc(gerenciaMouse);
+    glutPassiveMotionFunc(MouseAndando);
+    glClearColor(1,1,1,0);
+    glutMainLoop();
+    return 0;
+}
+
+
+

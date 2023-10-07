@@ -1,0 +1,77 @@
+#include <GL/gl.h>
+#include <GL/glut.h>
+#include <math.h>
+
+GLint moveY = 90;
+GLfloat moveX = -90;
+GLint direcao = 1, quica = 10;
+
+void timerPonto(int valor){
+    if (quica != 0) {
+        if(direcao == 1){
+            moveY--;
+            moveX+=0.5;
+            if(moveY == 0)
+                direcao = 0;
+        }
+        else {
+            moveY++;
+            moveX+=0.5;
+            if(moveY == quica){
+                direcao = 1;
+                quica-=1;
+            }
+        }
+    }
+
+    glutPostRedisplay();
+    glutTimerFunc(25, timerPonto, 1);
+}
+
+void quadrado(){
+    glColor3f(1, 0.84, 0);
+    glPointSize(50);
+    glBegin(GL_POINTS);
+        glVertex2f(moveX, moveY);
+    glEnd();
+}
+
+
+void Desenha (void) {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-100,100,-100,100);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glPushMatrix();
+        quadrado();
+
+    glPopMatrix();
+
+    glutSwapBuffers();
+}
+
+void Teclas(unsigned char tecla, GLint x, GLint y){
+    switch (tecla){
+        case 'a':
+            glutTimerFunc(70, timerPonto, 1);
+            break;
+    }
+    Desenha();
+}
+
+
+int main (void){
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(800,600);
+    glutInitWindowPosition(320,150);
+    glutCreateWindow("Aplicação em OpenGL");
+    glutDisplayFunc(Desenha);
+    glutKeyboardFunc(Teclas);
+    glClearColor(1,1,1,0);
+    glutMainLoop();
+    return 0;
+}
